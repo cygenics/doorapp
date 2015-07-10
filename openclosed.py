@@ -12,9 +12,17 @@ def send_text(number, name):
 	client = TwilioRestClient(twilio_acc_id, twilio_acc_auth_token)
 	message = client.messages.create(body=name + " the door has been opened!",
 		to="+12144444000",    # alert number
-	    from_="+19723626631") # Twilio from number
+	    from_="+19723626631") # twilio from number
 	print "text sent"
 
+#make call define
+def make_call(number, name):
+	#pull data from twilio
+	client = TwilioRestClient(twilio_acc_id, twilio_acc_auth_token)
+	call = client.calls.create(url="http://demo.twilio.com/docs/voice.xml",
+		to="+12144444000"        # alert number
+		from_="+19723626631")    # twilio from number
+		print "call made
 
 # firebase updates for open/closed
 def change_dooralert_state(state):
@@ -25,6 +33,7 @@ def change_dooralert_state(state):
 		name = "Stan"
 		number = os.getenv(name)
 		send_text(number, name)
+		make_call(number, name)
 	else:
 		#door is closed
 		FIREBASE.put('/', 'dooralert', 'true')
