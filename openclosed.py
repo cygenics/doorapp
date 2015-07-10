@@ -35,7 +35,7 @@ def change_dooralert_state(state):
 		number = os.getenv(name)
 		send_text(number, name)
 		time.sleep(10)
-		(make_call(number, name)
+		make_call(number, name)
 	else:
 		#door is closed
 		FIREBASE.put('/', 'dooralert', 'true')
