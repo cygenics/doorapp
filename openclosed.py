@@ -22,7 +22,7 @@ def make_call(number, name):
 	call = client.calls.create(url="http://demo.twilio.com/docs/voice.xml",
 		to="+12144444000",        # alert number
 		from_="+19723626631")    # twilio from number
-		print "call made
+	print "call made"
 
 # firebase updates for open/closed
 def change_dooralert_state(state):
