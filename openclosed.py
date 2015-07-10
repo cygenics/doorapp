@@ -17,14 +17,14 @@ def send_text(number, name):
 
 
 # firebase updates for open/closed
-def change_door_state(state):
+def change_dooralert_state(state):
 	if state == 0:
 		#door is opened
-		FIREBASE.put('/', 'door', 'false')
+		FIREBASE.put('/', 'dooralert', 'false')
 		#send sms alert
 		name = "Stan"
 		number = os.getenv(name)
 		send_text(number, name)
 	else:
 		#door is closed
-		FIREBASE.put('/', 'door', 'true')
+		FIREBASE.put('/', 'dooralert', 'true')
