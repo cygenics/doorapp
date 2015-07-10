@@ -17,7 +17,7 @@ while True:
 	#check if physical doors input is the same as firebase if not - update firebase
 	if input_state != prev_state:
 		#door state has changed so fire off actions
-		openclosed.change_door_state(input_state)
+		openclosed.change_dooralert_state(input_state)
 
 	prev_state = input_state
 	time.sleep(1)
