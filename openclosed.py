@@ -34,7 +34,7 @@ def change_dooralert_state(state):
 		name = "Stan"
 		number = os.getenv(name)
 		send_text(number, name)
-		time.sleep(10)
+		time.sleep(5)
 		make_call(number, name)
 	else:
 		#door is closed
