@@ -20,7 +20,7 @@ def make_call(number, name):
 	#pull data from twilio
 	client = TwilioRestClient(twilio_acc_id, twilio_acc_auth_token)
 	call = client.calls.create(url="http://demo.twilio.com/docs/voice.xml",
-		to="+12144444000"        # alert number
+		to="+12144444000",        # alert number
 		from_="+19723626631")    # twilio from number
 		print "call made
 
