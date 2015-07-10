@@ -1,5 +1,6 @@
 import os
 from firebase import firebase
+import time
 import requests
 from twilio.rest import TwilioRestClient
 from config import fbRef, twilio_acc_id, twilio_acc_auth_token, twilio_number
@@ -33,8 +34,8 @@ def change_dooralert_state(state):
 		name = "Stan"
 		number = os.getenv(name)
 		send_text(number, name)
-	time.sleep(10)
-		make_call(number, name)
+		time.sleep(10)
+		(make_call(number, name)
 	else:
 		#door is closed
 		FIREBASE.put('/', 'dooralert', 'true')
