@@ -1,4 +1,3 @@
-#!/usr/bin/env python2.7
 import RPi.GPIO as GPIO
 import time
 from firebase import firebase
@@ -13,9 +12,7 @@ while True:
 	input_state = GPIO.input(4)
 	print "input_state: " + str(input_state)
 	print "prev_state: " + str(prev_state)
-	#check if physical doors input is the same as firebase if not - update firebase
 	if input_state != prev_state:
-		#door state has changed so fire off actions
 		openclosed.change_dooralert_state(input_state)
 
 	prev_state = input_state
