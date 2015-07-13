@@ -11,14 +11,14 @@ def send_text():
 	client = TwilioRestClient(twilio_acc_id, twilio_acc_auth_token)
 	message = client.messages.create(body=alert_user_name + " the door has been opened!",
 		to=alert_user,
-		from_="+19723626631")
+		from_=twilio_number)
 	print "text sent"
 
 def make_call():
 	client = TwilioRestClient(twilio_acc_id, twilio_acc_auth_token)
 	call = client.calls.create(url="https://dooralert.firebaseapp.com/voice.xml",
 		to=alert_user,
-		from_="+19723626631")
+		from_=twilio_number)
 	print "call made"
 
 def change_dooralert_state(state):
