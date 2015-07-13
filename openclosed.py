@@ -7,14 +7,14 @@ from config import fbRef, twilio_acc_id, twilio_acc_auth_token, twilio_number, a
 
 FIREBASE = firebase.FirebaseApplication(fbRef, None)
 
-def send_text(text):
+def send_text(number, name):
 	client = TwilioRestClient(twilio_acc_id, twilio_acc_auth_token)
 	message = client.messages.create(body=alert_user_name + " the door has been opened!",
 		to=alert_user,
 		from_="+19723626631")
 	print "text sent"
 
-def make_call(call):
+def make_call(number, name):
 	client = TwilioRestClient(twilio_acc_id, twilio_acc_auth_token)
 	call = client.calls.create(url="https://dooralert.firebaseapp.com/voice.xml",
 		to=alert_user,
