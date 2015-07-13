@@ -9,7 +9,6 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(4, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 prev_state = 0;
 
-# TODO: use multi thread interupts instead of loop.
 while True:
 	input_state = GPIO.input(4)
 	print "input_state: " + str(input_state)
@@ -20,4 +19,4 @@ while True:
 		openclosed.change_dooralert_state(input_state)
 
 	prev_state = input_state
-	time.sleep(.9)
+	time.sleep(1)
