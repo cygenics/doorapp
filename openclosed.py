@@ -7,7 +7,7 @@ from config import fbRef, twilio_acc_id, twilio_acc_auth_token, twilio_number
 
 FIREBASE = firebase.FirebaseApplication(fbRef, None)
 
-def send_text:
+def send_text():
 	client = TwilioRestClient(twilio_acc_id, twilio_acc_auth_token)
 	message = client.messages.create(body=name + " the door has been opened!",
 		to="+12144444000",
@@ -15,7 +15,7 @@ def send_text:
 	print "text sent"
 
 #make call define
-def make_call:
+def make_call():
 	#pull data from twilio
 	client = TwilioRestClient(twilio_acc_id, twilio_acc_auth_token)
 	call = client.calls.create(url="https://dooralert.firebaseapp.com/voice.xml",
@@ -29,9 +29,9 @@ def change_dooralert_state(state):
 		FIREBASE.put('/', 'dooralert', 'false')
 		name = "Stan"
 		number = os.getenv(name)
-		send_text
+		send_text()
 		time.sleep(3)
-		make_call
+		make_call()
 	else:
 		#door is closed
 		FIREBASE.put('/', 'dooralert', 'true')
