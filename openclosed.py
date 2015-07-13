@@ -21,6 +21,6 @@ def change_dooralert_state(state):
 		to=alert_user,
 		from_="+19723626631")
 		print "call made"
-
+		
 	else:
 		FIREBASE.put('/', 'dooralert', 'true')
