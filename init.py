@@ -20,4 +20,4 @@ while True:
 		openclosed.change_dooralert_state(input_state)
 
 	prev_state = input_state
-	time.sleep(1)
+	time.sleep(.9)
