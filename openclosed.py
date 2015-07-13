@@ -20,7 +20,7 @@ def change_dooralert_state(state):
 	call = client.calls.create(url="https://dooralert.firebaseapp.com/voice.xml",
 		to=alert_user,
 		from_="+19723626631")
-		print "call made"
+	print "call made"
 
 	else:
 		FIREBASE.put('/', 'dooralert', 'true')
