@@ -6,12 +6,12 @@ import openclosed
 
 GPIO.setmode(GPIO.BCM)
 
-GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(4, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 prev_state = 0;
 
 # TODO: use multi thread interupts instead of loop.
 while True:
-	input_state = GPIO.input(17)
+	input_state = GPIO.input(4)
 	print "input_state: " + str(input_state)
 	print "prev_state: " + str(prev_state)
 	#check if physical doors input is the same as firebase if not - update firebase
