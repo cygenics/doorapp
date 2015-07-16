@@ -15,14 +15,16 @@ def send_text():
 	message = client.messages.create(body=alert_user_name + " the door has been opened!",
 		to=alert_user,
 		from_=twilio_number)
-	print st "text sent"
+	print st
+	print "text sent"
 
 def make_call():
 	client = TwilioRestClient(twilio_acc_id, twilio_acc_auth_token)
 	call = client.calls.create(url="https://dooralert.firebaseapp.com/voice.xml",
 		to=alert_user,
 		from_=twilio_number)
-	print st "call made"
+	print st
+	print "call made"
 
 def write_log():
 	with open("log.txt", "a") as myfile:
