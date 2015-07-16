@@ -8,14 +8,15 @@ from config import fbRef, twilio_acc_id, twilio_acc_auth_token, twilio_number, a
 
 FIREBASE = firebase.FirebaseApplication(fbRef, None)
 
-st = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+def timeStamp(fname, fmt='%Y-%m-%d-%H-%M-%S_{fname}'):
+    return datetime.datetime.now().strftime(fmt).format(fname=fname)
 
 def send_text():
 	client = TwilioRestClient(twilio_acc_id, twilio_acc_auth_token)
 	message = client.messages.create(body=alert_user_name + " the door has been opened!",
 		to=alert_user,
 		from_=twilio_number)
-	print st
+	print timeStamp
 	print "text sent"
 
 def make_call():
@@ -23,12 +24,12 @@ def make_call():
 	call = client.calls.create(url="https://dooralert.firebaseapp.com/voice.xml",
 		to=alert_user,
 		from_=twilio_number)
-	print st
+	print timeStamp
 	print "call made"
 
 def write_log():
+	with open(timeStamp('log.txt'),'a') as outf:
 	with open("log.txt", "a") as myfile:
-	myfile.write(st)
     myfile.write("Door has been opened.")
 
 def change_dooralert_state(state):
