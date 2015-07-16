@@ -1,6 +1,5 @@
-FROM resin/rpi-raspbian:wheezy-2015-02-08
+FROM resin/rpi-raspbian:wheezy-2015-07-15
 
-# Install Python.
 RUN apt-get update
 
 RUN apt-get upgrade -y
