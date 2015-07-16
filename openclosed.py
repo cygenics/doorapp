@@ -8,6 +8,7 @@ from config import fbRef, twilio_acc_id, twilio_acc_auth_token, twilio_number, a
 
 FIREBASE = firebase.FirebaseApplication(fbRef, None)
 
+ts = time.time()
 st = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
 
 def send_text():
