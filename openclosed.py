@@ -29,7 +29,6 @@ def make_call():
 
 def write_log():
 	with open(timeStamp('log.txt'),'a') as outf:
-	with open("log.txt", "a") as myfile:
     myfile.write("Door has been opened.")
 
 def change_dooralert_state(state):
