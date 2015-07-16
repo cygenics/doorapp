@@ -28,7 +28,8 @@ def make_call():
 
 def write_log():
 	with open("log.txt", "a") as myfile:
-    myfile.write(st "Door has been opened.")
+	myfile.write(st)
+    myfile.write("Door has been opened.")
 
 def change_dooralert_state(state):
 	if state == 0:
