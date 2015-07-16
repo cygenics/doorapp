@@ -21,11 +21,16 @@ def make_call():
 		from_=twilio_number)
 	print "call made"
 
+def write_log():
+	with open("log.txt", "a") as myfile:
+    myfile.write($(date) "Door has been opened.")
+
 def change_dooralert_state(state):
 	if state == 0:
 		FIREBASE.put('/', 'dooralert', 'false')
 		send_text()
 		time.sleep(4)
 		make_call()
+		write_log()
 	else:
 		FIREBASE.put('/', 'dooralert', 'true')
